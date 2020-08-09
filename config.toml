@@ -1,0 +1,24 @@
+baseURL = "http://joelkaplan.dev/"
+title = "Joel Kaplan - Software Engineer"
+languageCode = "en-us"
+theme = "hugo-coder"
+
+paginate = 20
+canonifyurls = true
+
+
+[params]
+  author = "Joel Kaplan"
+  info = "Software Engineer"
+  description = "Joel Kaplan's website and blog"
+
+
+# Menu links
+[[menu.main]]
+    name = "Blog"
+    weight = 1
+    url  = "/posts/"
+[[menu.main]]
+    name = "About"
+    weight = 2
+    url = "/about/"
