@@ -12,6 +12,11 @@ canonifyurls = true
   info = "Software Engineer"
   description = "Joel Kaplan's website and blog"
 
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+
 [[params.social]]
   name = "Github"
   icon = "fab fa-github"
