@@ -1,4 +1,4 @@
-baseURL = "http://joelkaplan.dev/"
+baseURL = "https://joelkaplan.dev/"
 title = "Joel Kaplan - Software Engineer"
 languageCode = "en-us"
 theme = "hugo-coder"
