@@ -12,6 +12,16 @@ canonifyurls = true
   info = "Software Engineer"
   description = "Joel Kaplan's website and blog"
 
+[[params.social]]
+  name = "Github"
+  icon = "fab fa-github"
+  weight = 1
+  url = "https://github.com/jkapl/"
+[[params.social]]
+    name = "LinkedIn"
+    icon = "fab fa-linkedin"
+    weight = 2
+    url = "https://www.linkedin.com/in/joel-kaplan/"
 
 # Menu links
 [[menu.main]]
