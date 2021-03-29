@@ -2,7 +2,7 @@
 date = "2021-03-27" 
 title = "SQL Performance Basics" 
 slug = "sql-basics-union" 
-tags = [SQL, performance] 
+tags = ["SQL", "performance"] 
 categories = [] 
 series = ["Theme", "Hugo"] 
 +++
