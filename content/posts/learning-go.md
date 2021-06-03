@@ -26,7 +26,7 @@ series = ["Theme", "Hugo"]
   - Methods are functions with a receiver
   - There's no need for a `this` keyword - just access either values from the object or the object itself with a pointer.
   - If the receiver is not an object (struct), then no pointer is needed to modify the values (I think)
-  ```
+```
 type SomeInts []int
 
 func (s SomeInts) sumInts () int {
@@ -41,9 +41,9 @@ func (s SomeInts) changeTheLastInt (i int) {
   s[len(s) - 1]=i
   fmt.Println(s)
 }
-  ```
+```
   - If the receiver is a struct, then a pointer is needed:
-  ```
+```
   type SomeInts struct {
   myints []int
 }
@@ -60,4 +60,4 @@ func (s *SomeInts) changeTheLastInt (i int) {
   s.myints[len(s.myints) - 1]=i
   fmt.Println(s.myints)
 }
-  ```
+```
