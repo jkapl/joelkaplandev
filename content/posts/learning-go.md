@@ -61,3 +61,8 @@ func (s *SomeInts) changeTheLastInt (i int) {
   fmt.Println(s.myints)
 }
 ```
+- Bit manipulation
+  - Example of performance benefit from bit manipulation: multiplying by two - instead allocate space for `uint64` and left shift using `<<` operator:
+```
+num << 1
+```
