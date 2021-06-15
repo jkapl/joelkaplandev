@@ -1,15 +1,15 @@
 +++ 
 date = "2021-03-27" 
-title = "SQL Performance Basics" 
-slug = "sql-basics-union" 
-tags = ["SQL", "performance"] 
+title = "SQL Notes: Performance, useful commands" 
+slug = "sql-basics" 
+tags = ["SQL", "performance", "notes"] 
 categories = [] 
 series = ["Theme", "Hugo"] 
 +++
 
 # Intro
 
-Got a complex slow-running SQL query? This post might be able to help. It's intended for beginner/intermediate SQLers like myself, so we'll cover the basics: the use of an `ALIAS`, the different types of `JOIN`s, the use of the [index](https://use-the-index-luke.com) to improve performance, and a nifty feature, the `UNION` - heavily crediting [this post](https://www.foxhound.systems/blog/sql-performance-with-union/) - to make queries super fast.
+Got slow-running SQL query? This post might be able to help. It's intended for beginner/intermediate SQLers like myself, so we'll cover the basics: the use of an `ALIAS`, the different types of `JOIN`s, the use of the [index](https://use-the-index-luke.com) to improve performance, and a nifty feature, the `UNION` - heavily crediting [this post](https://www.foxhound.systems/blog/sql-performance-with-union/) - to make queries super fast.
 
 ## SELECT
 
@@ -34,7 +34,12 @@ JOIN
 In order to make these types of queries possible, we'll need to use the `LEFT JOIN`, which returns all rows from the left table, and matching rows from the right table.
 
 
-### LEFT JOIN
+## Notes
 
-The left join returns all rows from the left table
 
+- SUBSTRING function, use to extract a substring from a field
+  - `SUBSTRING(COL_NAME, 3)` 
+- CAST function, use to cast to a type
+  - `CAST(SUBSTRING(COL_NAME, 3) AS INT)`
+- MAX, MIN
+  - `SELECT MAX(rating), MIN(review_count)`
