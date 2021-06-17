@@ -7,4 +7,6 @@ categories = []
 series = ["Theme", "Hugo"]
 +++
 
-# Intro
+# Notes
+- Setup (docker)
+- Plateau - on-cpu time
