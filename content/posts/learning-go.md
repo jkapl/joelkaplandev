@@ -4,7 +4,7 @@ title = "Notes Taken While Learning Go"
 slug = "learning-go"
 tags = ["golang", "go", "programming", "notes"]
 categories = []
-series = ["Theme", "Hugo"]
+series = ["Notes"]
 +++
 
 # Intro
