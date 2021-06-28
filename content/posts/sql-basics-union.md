@@ -43,3 +43,6 @@ In order to make these types of queries possible, we'll need to use the `LEFT JO
   - `CAST(SUBSTRING(COL_NAME, 3) AS INT)`
 - MAX, MIN
   - `SELECT MAX(rating), MIN(review_count)`
+- If aliasing a column or using a CASE statement, have to alias or CASE again in the WHERE clause. Remember, query order: FROM+JOIN -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY -> LIMIT. So WHERE clause is evaluated before SELECT
+  - `SELECT age, first, (case when last is NULL then Doe else last end) FROM age, name WHERE (case when last is NULL then Doe else last end) = Doe`
+  - Silly example but basically when the `last` column is null, replace the value with "Doe". Check for "Doe" in the WHERE clause instead of IS NULL
