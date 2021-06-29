@@ -4,7 +4,7 @@ title = "SQL Notes: Performance, useful commands"
 slug = "sql-basics" 
 tags = ["SQL", "performance", "notes"] 
 categories = [] 
-series = ["Theme", "Hugo"] 
+series = [] 
 +++
 
 # Intro

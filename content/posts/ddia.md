@@ -4,7 +4,7 @@ title = "Designing Data Intensive Applications - Notes"
 slug = "ddia-notes"
 tags = ["ddia", "distributed-systems", "notes"]
 categories = []
-series = ["Notes"]
+series = ["Notes", "Books"]
 +++
 
 # Notes

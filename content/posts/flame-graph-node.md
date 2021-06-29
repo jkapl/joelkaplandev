@@ -4,7 +4,7 @@ title = "Performance Analysis with Flame Graphs"
 slug = "perf-test-node-docker"
 tags = ["flame-graph", "performance", "node.js", "docker"]
 categories = []
-series = ["Theme", "Hugo"]
+series = ["Performance"]
 +++
 
 # Notes
