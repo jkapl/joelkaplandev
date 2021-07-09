@@ -9,5 +9,9 @@ series = ["Notes"]
 
 ## Networking
 
+### Ping
+
 ### MTR
 - MyTraceRoute
+- Similar to `top` but for networking
+- `mtr -4b google.com` - shows hops and packet loss, -4 for IPv4 (shows IPv6 by default), b for show IP addresses and hostnames
