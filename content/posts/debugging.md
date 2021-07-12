@@ -7,6 +7,33 @@ categories = ["Tools"]
 series = ["Notes"] 
 +++
 
+## Methodology
+
+# anti-methods
+- streetlight: don't just use tools that are familiar 
+- drunk man: fix random things
+- 
+
+# methods
+- problem statement
+  - What makes you think there is an issue? 
+  - Has the system ever performed well?
+  - What has changed recently?
+  - Is the performance issue in latency or
+- workload characterization
+  1. Who is causing the load? PID, UID, IP address
+  2. Why is the load called? code path, stack trace
+  3. What is the load? IOPS, tput, type r/w
+  4. How is the load changing over time?  
+- USE method
+  - For every resource, check:
+    1. Utilization (busy time)
+    2. Saturation (queue length)
+    3. Errors
+  - Helps to have functional (block) diagram of system
+- off-CPU analysis
+
+
 ## Networking
 
 ### Ping
@@ -24,3 +51,9 @@ series = ["Notes"]
 
 ### Networking tab in the browser
 - Timings tab shows timings of the request
+
+## CPU
+
+### top
+
+### strace
