@@ -1,5 +1,5 @@
 +++ 
-date = "2021-06-29" 
+date = "2021-07-13" 
 title = "Debugging Notes: Useful Tools" 
 slug = "debugging-tools" 
 tags = ["debugging", "tools"] 
@@ -9,12 +9,11 @@ series = ["Notes"]
 
 ## Methodology
 
-Resource: [https://www.youtube.com/watch?v=FJW8nGV4jxY](Linux Performance Tools, Brendan Gregg) 
+Resource: [Linux Performance Tools, Brendan Gregg](https://www.youtube.com/watch?v=FJW8nGV4jxY)
 
 # anti-methods
 - streetlight: don't just use tools that are familiar 
 - drunk man: fix random things
-- 
 
 # methods
 - problem statement
@@ -38,6 +37,9 @@ Resource: [https://www.youtube.com/watch?v=FJW8nGV4jxY](Linux Performance Tools,
   - Understand all software > 1%
 
 ## Observability tools
+
+[Tools](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/observ_tools_basic.png)
+
 ### `uptime`
   - load averages. Very old, predates UNIX
   - only look at for 5s if load is close to 0.00
