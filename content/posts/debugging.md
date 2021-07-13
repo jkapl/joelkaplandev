@@ -56,6 +56,9 @@ Resource: [https://www.youtube.com/watch?v=FJW8nGV4jxY](Linux Performance Tools,
 ### `mpstat`
   - per CPU stats
 ### `free`
+### `sar`
+  - system activity report
+  - `sar -n DEV 1` : show activity from network (-n) devices (DEV)
 
 
 ## Networking
