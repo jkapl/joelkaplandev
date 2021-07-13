@@ -38,7 +38,24 @@ Resource: [https://www.youtube.com/watch?v=FJW8nGV4jxY](Linux Performance Tools,
   - Understand all software > 1%
 
 ## Observability tools
-- `uptime`: load averages. Very old, predates UNIX
+### `uptime`
+  - load averages. Very old, predates UNIX
+  - only look at for 5s if load is close to 0.00
+  - If load greater than num of cpus, indicates an issue
+### `top`
+  - System and per process summary
+  - Can miss short lives processes
+### `ps`
+  - process status listing
+  - `ps -ef f`
+### `vmstat`
+  - virtual memory statistics
+  - vmstat [interval [count]]
+### `iostat`
+  - disk stats
+### `mpstat`
+  - per CPU stats
+### `free`
 
 
 ## Networking
