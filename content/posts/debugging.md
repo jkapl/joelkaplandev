@@ -9,6 +9,8 @@ series = ["Notes"]
 
 ## Methodology
 
+Resource: [https://www.youtube.com/watch?v=FJW8nGV4jxY](Linux Performance Tools, Brendan Gregg) 
+
 # anti-methods
 - streetlight: don't just use tools that are familiar 
 - drunk man: fix random things
@@ -32,6 +34,11 @@ series = ["Notes"]
     3. Errors
   - Helps to have functional (block) diagram of system
 - off-CPU analysis
+- CPU Profile (flame graph)
+  - Understand all software > 1%
+
+## Observability tools
+- `uptime`: load averages. Very old, predates UNIX
 
 
 ## Networking
