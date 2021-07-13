@@ -38,7 +38,7 @@ Resource: [Linux Performance Tools, Brendan Gregg](https://www.youtube.com/watch
 
 ## Observability tools
 
-[Tools](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/observ_tools_basic.png)
+![Tools](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/observ_tools_basic.png?raw=true)
 
 ### `uptime`
   - load averages. Very old, predates UNIX
