@@ -63,7 +63,7 @@ Resource: [Linux Performance Tools, Brendan Gregg](https://www.youtube.com/watch
   - `sar -n DEV 1` : show activity from network (-n) devices (DEV)
 
 
-## Networking
+## Networking: Tools
 
 ### Ping
 
@@ -72,17 +72,30 @@ Resource: [Linux Performance Tools, Brendan Gregg](https://www.youtube.com/watch
 - Similar to `top` but for networking
 - `mtr -4b google.com` - shows hops and packet loss, -4 for IPv4 (shows IPv6 by default), b for show IP addresses and hostnames
 
-### tcpdump
-
+### `tcpdump`
 - Show all packets on a particular port
-- `sudo tcpdump -n -i any port 53` : show me all traffic on port 53 (DNS server lookup port)
+- `sudo tcpdump -n -i any port 53` : show me all traffic on port 53 (DNS server lookup port) (-i for interface, here specifying any interface, -n for don't resolve names)
+- `sudo tcpdump -i any port 1234` : show me all traffic on port 1234. Could show lots of SYN packets being sent but firewall blocking any connection
 - sample output: `11:45:31.236938 IP 192.168.0.211.56426 > 192.168.0.1.53: 11330+ A? neopets.com. (29)`
 
-### Networking tab in the browser
-- Timings tab shows timings of the request
+### Network tab in the browser
+- Timings tab shows timings of the request. Can check here if DNS lookups are taking too long for instance
 
 ## CPU
 
 ### top
 
 ### strace
+
+## Networking: Techniques
+
+### iptables
+
+Resetting iptables counters can help determine if iptables rules are being triggered, and potentially causing an issue.
+- Print all iptables rules: `sudo iptables-save`
+- Show counters: `sudo iptables-save -c`
+- Reset counters: `sudo iptables -Z` (clears default table) `sudo iptables -t nat -Z` (clears nat table)
+
+### tcpdump
+
+Could check if lots of repeat SYN packets are being sent - could indicate firewall blocking connection.
