@@ -38,6 +38,12 @@ Resource: [Linux Performance Tools, Brendan Gregg](https://www.youtube.com/watch
 
 ## Observability tools
 
+Do your tools cover these parts of the system?
+
+![Fill in](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/observ_fill_blank.png?raw=true)
+
+Some basic tools:
+
 ![Tools](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/observ_tools_basic.png?raw=true)
 
 ### `uptime`
@@ -61,6 +67,7 @@ Resource: [Linux Performance Tools, Brendan Gregg](https://www.youtube.com/watch
 ### `sar`
   - system activity report
   - `sar -n DEV 1` : show activity from network (-n) devices (DEV)
+  ![sar](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/sar.png?raw=true)
 
 
 ## Networking: Tools
