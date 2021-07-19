@@ -8,3 +8,5 @@ series = ["Notes", "Books"]
 +++
 
 # Notes
+
+## Consistency tradeoffs
