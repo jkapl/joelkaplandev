@@ -66,6 +66,7 @@ Some basic tools:
 ### `free`
 ### `sar`
   - system activity report
+  - very effective way to explore many parts of the system
   - `sar -n DEV 1` : show activity from network (-n) devices (DEV)
   ![sar](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/sar.png?raw=true)
 
