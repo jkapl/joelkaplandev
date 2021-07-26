@@ -7,4 +7,6 @@ Hello! I'm a software engineer in NYC. I'm interested in the history -- and futu
 
 {{< archive "https://archive.org/embed/xerox-parc-tapes-v1" >}}
 
+![Resume](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/Joel_Kaplan.pdf?raw=true)
+
 Find me on Twitter at @JoelCpl625
