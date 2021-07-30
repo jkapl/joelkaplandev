@@ -39,6 +39,17 @@ series = ["Notes"]
 
 ## Instagram Architecture
 
+- Postgres, Django, Memcache one part of stack
+- Interesting issue around cache invalidation with multi-datacenter replication
+- When a write comes to the DB in one datacenter, have to use postgres replication mechanism and daemon to invalidate the cached key in both datacenters semi-concurrently. Previously, had Django setting the memcache key in one DC, not updated in the other
+
+![Cache invalidation](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/insta_cache_invalidate.png?raw=true)
+
+- How to handle increased read load on DB when cache is invalidated across multiple datacenters? For certain features (like counts for popular posts), this data will have to be denormalized and stored in a separate table (avoid SELECT COUNT(*))
+- Even when stored in a separate table or DB like cassandra, will hit the cache a lot. So instead of letting tons of requests come in at the same time and read from the DB if the cache key is still stale, use a cache-lease. The first request to the cache will get a lease to go to the DB. Any subsequent requests will either get a stale result or can wait until the cache is updated.
+
+![Cache lease](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/insta_cache_lease.png?raw=true)
+
 ## Twitter Feed Architecture
 
 - Hybrid approach to solving for high read AND high write throughput.
