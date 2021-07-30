@@ -36,3 +36,14 @@ series = ["Notes"]
 ### Challenges
 - Mains DB failure
 - Quadratic relationship between members, teams, channels impacting start payload
+
+## Instagram Architecture
+
+## Twitter Feed Architecture
+
+- Hybrid approach to solving for high read AND high write throughput.
+  - Pre-computed feed for each user based on follows. 
+  - Event stream type system for updating user feeds when follows post a tweet
+  - For users with millions of followers, to avoid millions of writes, don't update follower feeds
+  - Instead retrieve those users tweets at read time
+
