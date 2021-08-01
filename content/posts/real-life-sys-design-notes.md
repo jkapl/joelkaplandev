@@ -37,7 +37,6 @@ series = ["Notes"]
 - Mains DB failure
 - Quadratic relationship between members, teams, channels impacting start payload
 
-[Instagram Architecture](#instagram-architecture)
 ## Instagram Architecture
 
 - Postgres, Django, Memcache one part of stack
