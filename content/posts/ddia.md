@@ -63,3 +63,20 @@ series = ["Notes", "Books"]
 - Commonly used to build machine learning systems (classifiers) and recommendation systems
 - Output is often a database (query user ID to retrieve suggested friends)
 - Key-value store is often the output, data file from batch job can be loaded in. Examples include Voldemort
+
+## Conflict Resolution
+
+- Generally try to avoid conflicts - use single leader replication
+- Dynamo style databases have multi-leader by default; for these 
+
+### Faulty but useful approaches
+- Updates should have timestamps or random values, that way the system can have logic that sorts or discards older or newer data, or just randomly
+- Resolve on write: some DBs allow for custom handlers (perl in Bucardo) to execute when conflicts are detected
+- Resolve on read: CouchDB
+
+### CRDTs (conflict free replicated datatypes)
+- What the hell are these
+
+## Big Ideas (maybe merge these later)
+
+- Event based systems are useful because they contain faults by introducing asynchronous and independent systems. No distributed transactions
