@@ -9,6 +9,8 @@ series = ["Notes"]
 
 ## Slack architecture
 
+[Presentation Link](https://www.infoq.com/presentations/slack-infrastructure/)
+
 ### Database
 
 - PHP web app delivers a payload with websocket URL, hash indicating when delivered, database shard for particular team
@@ -38,6 +40,8 @@ series = ["Notes"]
 - Quadratic relationship between members, teams, channels impacting start payload
 
 ## Instagram Architecture
+
+[Presentation Link](https://www.infoq.com/presentations/instagram-scale-infrastructure/)
 
 - Postgres, Django, Memcache one part of stack
 - Interesting issue around cache invalidation with multi-datacenter replication
