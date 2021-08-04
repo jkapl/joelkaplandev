@@ -70,8 +70,20 @@ series = ["Notes"]
 
 [Presentation Link](https://www.youtube.com/watch?v=jQNCuD_hxdQ)
 
+
+![Pinterest Arch](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/pinterest_arch.png?raw=true)
+
 - Redis
   - Varieties of persistence options: now (write to disk immediately), snapshot, never
   - Used at Pinterest both as cache and persistent storage
   - Used for public feed storage (like Facebook graph) INSTEAD of MySQL because to insert in MySQL, have to walk a tree (B tree), whereas with feeds, a better data structure is a FIFO queue (most recent tweets/pins)
+  - True ordered list, O(1) insert
 
+- NoSQL generally
+  - Used for counters and search
+
+- Zookeeper
+  - Used for configuration management/service discovery - which box is where
+
+- Have to be aware of issues with read replicas. Sharding is preferred solution
+  - With read replicas, if write comes in, clears cache, and a subsequent request comes in before the new write is replicated to the read replica, the value will be stale (bug)

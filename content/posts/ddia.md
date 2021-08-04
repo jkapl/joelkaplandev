@@ -35,6 +35,9 @@ series = ["Notes", "Books"]
   - B trees better for reads, worse for writes (maybe)
     - Reads always log(n)
     - Writes need to rewrite entire memory page each time (check this)
+
+- B Tree vs lists
+  - O(1) insert on redis style database (ordered list)
   
 - Cassandra, Dynamo
   - Multi master (any node can accept a write)
@@ -62,7 +65,7 @@ series = ["Notes", "Books"]
 
 - Commonly used to build machine learning systems (classifiers) and recommendation systems
 - Output is often a database (query user ID to retrieve suggested friends)
-- Key-value store is often the output, data file from batch job can be loaded in. Examples include Voldemort
+- Read-only key-value store is often the output, data file from batch job can be loaded in. Examples include Voldemort
 
 ## Conflict Resolution
 
