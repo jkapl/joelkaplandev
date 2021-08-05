@@ -80,6 +80,10 @@ series = ["Notes", "Books"]
 ### CRDTs (conflict free replicated datatypes)
 - What the hell are these
 
-## Big Ideas (maybe merge these later)
+## Big Ideas (maybe move these around later)
 
 - Event based systems are useful because they contain faults by introducing asynchronous and independent systems. No distributed transactions
+
+- Idempotency
+  - Stripe uses idempotency keys associated with each transaction to prevent duplicate charges on retries
+  - Idempotency keys are retired after 24 hrs
