@@ -87,3 +87,16 @@ series = ["Notes"]
 
 - Have to be aware of issues with read replicas. Sharding is preferred solution
   - With read replicas, if write comes in, clears cache, and a subsequent request comes in before the new write is replicated to the read replica, the value will be stale (bug)
+
+
+## Financial Exchange (LMAX) (2020)
+
+- NFRs
+  - Throughput: 1 million transactions per sec
+  - Latency: 10s of microseconds
+
+- Concepts
+  - replicated state machines
+    - all nodes receive inputs in same order, execution is deterministic (iterating over keys in a map not deterministic)
+    - distributed event log best way to achieve this
+
