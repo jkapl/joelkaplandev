@@ -99,4 +99,29 @@ series = ["Notes"]
   - replicated state machines
     - all nodes receive inputs in same order, execution is deterministic (iterating over keys in a map not deterministic)
     - distributed event log best way to achieve this
+  - timestamps
+    - timestamped network packets
+    - priority heaps, timer wheels to handle multiple timers. Inject timestamp into event flow
+  - gateways
+    - typically markets had multiple gateways for clients/traders to connect to, but this was flawed
+    - clients would connect to all gateways to find ones with best execution time
+    - then submit unfillable orders at other gateways to flood traffic
+    - only one gateway is used
+    - now only one gateway per class of service
+  - multiple matching engines
+    - shard by asset class: equities (large or small), fx
+
+- Deployment
+  - continuous delivery
+    - automation
+    - test suites
+    - fast feedback cycles
+  - 24 * 7 operations
+    - snapshots of state
+    - quorums to be able to restart nodes
+    - monitoring
+  - flexible scaling
+    - be able to run entire stack on laptop or datacenter
+    - try to be able to run on one machine with IPC (machines are 100 core now)
+  
 
