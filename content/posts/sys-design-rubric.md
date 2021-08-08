@@ -55,3 +55,21 @@ Need read replicas. 10k peaks means 300k rps
 Mysql 10k selects per second so at least 3 read replicas
 Caching layer for additional scaling. Redis can handle 100k rps
 Hottest URLs 1% of total = 30 GB, can store each on Redis
+
+## Uber
+Driver connects via websocket to deliver location payload every 5s
+latitude, longitude, direction, driver_id
+500k active drivers, average shift of 6 hours, 4 shifts per day
+125k drivers active at any moment, message every 5 seconds, 25k RPS on average
+Peak x2 = 50k, x4 = 100k, x10 = 250k
+Rule of thumb: 5k writes/s for any DB node
+How to handle writing this location data?
+Scale reads with read replicas, scale writes with sharding
+Shard by geo (will get country hot spots)? custom areas (will need to maintain, update areas) - would need driver location service that takes coordinates of driver plus shard location service to find shard?
+Use Uber H3 geolocation library (edge free) - hexagons of equal size, each mapped to a shard.
+Riders
+10M active
+5 opens of app/day = 50M opens a day
+Refresh driver locations every 5 s, average session is 1 minutes = 12 refreshes
+50M * 12 = 600 M requests/day = ~7k requests per second
+
