@@ -72,4 +72,5 @@ Riders
 5 opens of app/day = 50M opens a day
 Refresh driver locations every 5 s, average session is 1 minutes = 12 refreshes
 50M * 12 = 600 M requests/day = ~7k requests per second
+Postgres offers geolocation queries
 

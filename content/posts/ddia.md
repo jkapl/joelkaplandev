@@ -87,3 +87,14 @@ series = ["Notes", "Books"]
 - Idempotency
   - Stripe uses idempotency keys associated with each transaction to prevent duplicate charges on retries
   - Idempotency keys are retired after 24 hrs
+
+- Probabilistic data structures (maybe new post)
+  - Often used for real-time analytics and large datasets
+  - Bloom filters for compact existence check:
+    - Always tells if item is in set, slight change of false positives
+    - bitmap
+    - Check if a website is malicious (bloom filter of giant set of malicious sites)
+  - t-digest
+    - on-line accumuluation of rank-based statistics
+    - sort of like a histogram with many quintiles, more accuracy in very high and very low quintiles, less in middle quintiles
+    - compute median of a large number of integers
