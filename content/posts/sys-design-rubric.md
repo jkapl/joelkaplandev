@@ -72,5 +72,13 @@ Riders
 5 opens of app/day = 50M opens a day
 Refresh driver locations every 5 s, average session is 1 minutes = 12 refreshes
 50M * 12 = 600 M requests/day = ~7k requests per second
-Postgres offers geolocation queries
+Postgres offers geolocation queries 
 
+## Web crawler
+Queue to process URLs, queue to send page content to an indexing service
+DNS service close to content fetcher service to serve faster DNS queries
+Headless browser to make sure content is rendered (React componenents need additional API request to fill in data)
+Interested in host, path and parameters of URL
+How often to check a site? How often to check subdomain of a site? Different rates
+Already seen URL or not? Use a bloom filter to hold all urls we have seen. 1.5B sites -> 50 GB RAM -> 1 false positive in million = 15k pages never indexed. Maybe better to use Redis
+Average URL - 50 bytes. 15B URLs - 700 GB (a lot of RAM) - so need to shard Redis - 70 shards
