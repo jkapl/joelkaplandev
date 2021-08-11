@@ -87,6 +87,42 @@ Could use regular relational DB, lower throughput, higher consistency
 
 ![Web crawler](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/web_crawler.png?raw=true)
 
+### Key takeaways
+
+
 ## Ebay
 Bids service must be serialized (queue) to make sure each is evaluated in order (could have situation where a bid at $3 and a bid at $5 arrive at the same time but $3 bid is processed first, and $5 bid is rejected because of race condition in DB - if $5 bid checks to make sure it is only processed at the item's current price)
 Use websockets or polling to inform client of latest price and bids
+
+## Groupon
+How many active users? How many coupons? 
+100M users, 10M coupons, 10 minutes to give away
+Basic solutions: Coupons service, user id, if user in coupons DB, return coupon ID, else select count(*) from coupons, if count > max, return sorry, else insert into coupons the users id and return the coupon id 
+How to solve concurrency issue if two users request coupon at same time
+Queue: Coupons service checks if the user's coupon exists, if not send a request to write a new coupon to a queue that then writes to the DB, queue consists of single consumer that actually writes to db
+100M users in 10 minutes == 20K active users per second. If 80m users arrive in first minute, 1.2M users per second
+Prepopulate DB with null values for 10 m coupons, this way the Database handles locking for us: When user wants coupon, select * from coupons where userid = ?, if row exists return couponid, else update coupons set userid = ? where uuid = null limit 1. If failed, return sorry, else congratulations
+This way the DB will only set the 10 m coupons we determined (by using sql UPDATE instead of INSERT)
+Layer 7 load balancer to match users to the same coupons service and same sharded coupon db
+Each service has an in memory cache of issued coupons and queue for writes
+Distribution a little bit unfair, one DB could have unissued coupons for users with ids ending in certain value
+
+![Groupon](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/groupon.png?raw=true)
+
+### Key takeaways
+- avoid concurrency issues by relying on database to lock rows. Use UPDATE instead of INSERT
+- use layer 7 load balancing to match users to the same service backed by the same database. Basically sharding
+- use an in memory queue and in memory counter in the coupon service to keep track of number of coupons issued, once it reaches a limit, no need to query DB. Can easily restore the count from the DB. Queue would be lost (unfair tradeoff)
+
+## Chat application
+- 100 million active users, 1M chats, 1 billion messages/day, mobile and web, no group chats
+- 12K messages/second (12k inserts)
+- PUT request, GET request
+- DB: from_user, to_user, message, sent_at
+- SELECT * from messages where (user = ? or user = ?) sort by sent_at desc
+- create index on messages(from_user_id, to_user_id)
+- Websockets means fewer requests
+- shard messages by hashing sender and receiver. Sort pair first to make sure to produce same hash! shard locator takes 12k writes, 200k reads per second
+- each new message sent to message router service via a queue, router sends the message out to websockets handler via another queue (several queues handling messages for many websocket handlers per queue), sends to user, it also send the message to the shard locator service which writes to the correct db
+
+![Chat application](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/chat_application.png?raw=true)

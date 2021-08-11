@@ -128,4 +128,7 @@ series = ["Notes"]
 
 [Zuul push video](https://www.youtube.com/watch?v=6w6E_B55p0E)
   
-
+Maintain open websocket connections with 10s of thousands of machines
+Key notes:
+- connection closing
+- avoiding thundering herd
