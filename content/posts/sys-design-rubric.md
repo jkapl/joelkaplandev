@@ -75,10 +75,18 @@ Refresh driver locations every 5 s, average session is 1 minutes = 12 refreshes
 Postgres offers geolocation queries 
 
 ## Web crawler
+Overall design: *Content fetcher uses headless browser, sends content to indexing service and a url extractor service, url extractor sends urls to prioritiser after checking with Redis to see if it's a new URL, prioritiser checks with redis to see if domain has already been crawled recently, if so add to postponed task queue, if not send to content fetcher. If indexing service sees new content, inform update notifier service which tells redis that content has updated, which sets a different update frequency value for that site*
 Queue to process URLs, queue to send page content to an indexing service
 DNS service close to content fetcher service to serve faster DNS queries
 Headless browser to make sure content is rendered (React componenents need additional API request to fill in data)
 Interested in host, path and parameters of URL
 How often to check a site? How often to check subdomain of a site? Different rates
-Already seen URL or not? Use a bloom filter to hold all urls we have seen. 1.5B sites -> 50 GB RAM -> 1 false positive in million = 15k pages never indexed. Maybe better to use Redis
-Average URL - 50 bytes. 15B URLs - 700 GB (a lot of RAM) - so need to shard Redis - 70 shards
+Already seen URL or not? Use a bloom filter to hold all urls we have seen. 1.5B sites -> 50 GB RAM -> 1 false positive in million = 15k pages never indexed. High throughput, low consistency. Maybe better to use Redis
+Average URL - 50 bytes. 15B URLs - 700 GB (a lot of RAM) - so need to shard Redis - 70 shards. Medium throughput, medium consistency
+Could use regular relational DB, lower throughput, higher consistency
+
+![Web crawler](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/web_crawler.png?raw=true)
+
+## Ebay
+Bids service must be serialized (queue) to make sure each is evaluated in order (could have situation where a bid at $3 and a bid at $5 arrive at the same time but $3 bid is processed first, and $5 bid is rejected because of race condition in DB - if $5 bid checks to make sure it is only processed at the item's current price)
+Use websockets or polling to inform client of latest price and bids

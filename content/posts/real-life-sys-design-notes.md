@@ -123,5 +123,9 @@ series = ["Notes"]
   - flexible scaling
     - be able to run entire stack on laptop or datacenter
     - try to be able to run on one machine with IPC (machines are 100 core now)
+
+## Netflix Push Messaging
+
+[Zuul push video](https://www.youtube.com/watch?v=6w6E_B55p0E)
   
 
