@@ -126,3 +126,16 @@ Distribution a little bit unfair, one DB could have unissued coupons for users w
 - each new message sent to message router service via a queue, router sends the message out to websockets handler via another queue (several queues handling messages for many websocket handlers per queue), sends to user, it also send the message to the shard locator service which writes to the correct db
 
 ![Chat application](https://raw.githubusercontent.com/jkapl/joelkaplandev/master/static/chat_application.png?raw=true)
+
+## Twitter
+POST /tweets
+Write buffering and batching
+100 bytes per tweet - 86 GB per day
+31 TB/year total storage
+Scaling reads:
+- read replicas (20 - 50k reads per second)
+- sharding
+- pre cache service producing cached feeds
+
+
+
